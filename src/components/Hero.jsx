@@ -19,7 +19,7 @@ export default function Hero() {
             I believe the most useful thing I can bring to a team is a willingness to keep learning
             on the go. I pick up new technologies by building something real with them, I'm
             genuinely curious about how things work underneath, and I do my best work collaborating
-            across engineering, data, and business teams rather than in a silo.
+            across engineering, data, and business teams, not off in a silo.
           </p>
           <div className="hero-traits">
             <span className="trait-chip trait-1">Growth Mindset</span>

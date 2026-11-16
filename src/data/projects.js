@@ -40,7 +40,7 @@ export const featuredProjects = [
     dates: "Oct 2026",
     stack: "Python, Statistical Testing, Model Governance",
     problem:
-      "A model's reported performance is only as trustworthy as the validation behind it; before trusting one, it needs to be tested independently rather than taken on the original developer's word.",
+      "A model's reported performance is only as trustworthy as the validation behind it; before trusting one, it needs independent testing, not just the original developer's word.",
     solution:
       "Rebuilt a credit risk model from its underlying code and specification from scratch, then ran a full validation suite (Information Value for target leakage, Hosmer-Lemeshow discrimination/calibration, Population Stability Index, Variance Inflation Factor, stress testing) mapped to real bank regulatory frameworks (IFRS 9/IRB-style testing, Pillar 2/ICAAP).",
     results:
@@ -77,7 +77,7 @@ export const featuredProjects = [
     solution:
       "Ran a 3-phase study across ~3,840 training and 2,058 hidden test images: classical classifiers on frozen embeddings, then end-to-end fine-tuning (EfficientNetV2-S), then advanced training (focal loss, AdamW, OneCycleLR with SWA, mixup, 5-view test-time augmentation, and a frequency-domain FFT branch) with model ensembling.",
     results:
-      "Lifted F1 from 0.8134 (best classical baseline) to 0.9356 (best single model, ConvNeXt-Base). Also found, by testing it, that a 3-model ensemble (0.9317) didn't beat the single best model, a genuine negative result reported rather than hidden.",
+      "Lifted F1 from 0.8134 (best classical baseline) to 0.9356 (best single model, ConvNeXt-Base). Also found, by testing it, that a 3-model ensemble (0.9317) didn't beat the single best model, a genuine negative result, reported honestly instead of buried.",
   },
   {
     name: "Atmospheric Radioactivity Time-Series Forecasting",
@@ -89,7 +89,7 @@ export const featuredProjects = [
     solution:
       "Built a forecasting pipeline in R comparing SARIMA, ETS, and TBATS models on 8 years of monthly EU monitoring data, validating assumptions with ADF, KPSS, and Ljung-Box tests.",
     results:
-      "Selected the model that generalized best on held-out test error rather than training fit alone, a methodology directly transferable to monitoring operational or telemetry data over time.",
+      "Selected the model that generalized best on held-out test error, not just training fit, a methodology directly transferable to monitoring operational or telemetry data over time.",
     images: [
       { src: "forecasting-actual-vs-forecast.png", alt: "Actual vs. forecast radioactivity levels on the held-out test period" },
       { src: "forecasting-timeseries-components.png", alt: "Decomposed time series components (trend, seasonal, remainder)" },
