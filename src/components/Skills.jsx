@@ -4,8 +4,16 @@ const skillGroups = [
     items: ["Problem Definition", "Requirements Gathering", "KPI Design", "Stakeholder Management", "Agile/Scrum"],
   },
   {
-    label: "AI & Machine Learning",
-    items: ["LangGraph", "RAG", "LLM Integration (Groq, Gemini)", "PyTorch", "PyTorch Geometric", "Scikit-learn", "Graph Neural Networks"],
+    label: "AI & LLM Engineering",
+    items: ["LangGraph", "RAG", "LLM Integration (Groq, Gemini)"],
+  },
+  {
+    label: "Machine Learning",
+    items: ["Supervised Learning", "Unsupervised Learning", "Reinforcement Learning", "XGBoost", "Random Forest", "Decision Trees", "Clustering", "Scikit-learn"],
+  },
+  {
+    label: "Deep Learning",
+    items: ["PyTorch", "PyTorch Geometric", "CNNs", "Transformers", "NLP", "Graph Neural Networks (GraphSAGE, GATv2, GCN)"],
   },
   {
     label: "Programming & Data",
