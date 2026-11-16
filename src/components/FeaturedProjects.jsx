@@ -42,17 +42,48 @@ export default function FeaturedProjects() {
                   ))}
                 </div>
               )}
-              <button
-                className="project-toggle"
-                onClick={() => toggle(p.name)}
-                aria-expanded={isOpen}
-              >
-                <span className="project-toggle-text">
-                  <span className="project-name">{p.name}</span>
-                  <span className="project-dates">{p.dates}</span>
-                </span>
-                <span className="chevron" aria-hidden="true">{isOpen ? "−" : "+"}</span>
-              </button>
+              <div className="project-toggle">
+                <div
+                  className="project-toggle-main"
+                  role="button"
+                  tabIndex={0}
+                  aria-expanded={isOpen}
+                  onClick={() => toggle(p.name)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      toggle(p.name);
+                    }
+                  }}
+                >
+                  <span className="project-toggle-text">
+                    <span className="project-name-row">
+                      <span className="project-name">{p.name}</span>
+                      {p.liveUrl && (
+                        <a
+                          className="live-badge"
+                          href={p.liveUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          <span className="live-dot" aria-hidden="true" />
+                          LIVE
+                        </a>
+                      )}
+                    </span>
+                    <span className="project-dates">{p.dates}</span>
+                  </span>
+                </div>
+                <button
+                  className="chevron-btn"
+                  onClick={() => toggle(p.name)}
+                  aria-expanded={isOpen}
+                  aria-label={isOpen ? "Collapse project details" : "Expand project details"}
+                >
+                  <span className="chevron" aria-hidden="true">{isOpen ? "−" : "+"}</span>
+                </button>
+              </div>
               {isOpen && (
                 <div className="project-details">
                   <p className="project-stack">{p.stack}</p>
@@ -74,11 +105,6 @@ export default function FeaturedProjects() {
                     <a className="project-link" href={p.link} target="_blank" rel="noreferrer">
                       View on GitHub &rarr;
                     </a>
-                    {p.liveUrl && (
-                      <a className="project-link" href={p.liveUrl} target="_blank" rel="noreferrer">
-                        View Live &rarr;
-                      </a>
-                    )}
                   </div>
                 </div>
               )}

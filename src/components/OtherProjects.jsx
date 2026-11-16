@@ -8,17 +8,20 @@ export default function OtherProjects() {
       <div className="other-grid">
         {otherProjects.map((p) => (
           <div className="other-card" key={p.name}>
-            <h4>{p.name}</h4>
+            <div className="other-card-title-row">
+              <h4>{p.name}</h4>
+              {p.liveUrl && (
+                <a className="live-badge" href={p.liveUrl} target="_blank" rel="noreferrer">
+                  <span className="live-dot" aria-hidden="true" />
+                  LIVE
+                </a>
+              )}
+            </div>
             <p>{p.description}</p>
             <div className="other-card-links">
               <a href={p.link} target="_blank" rel="noreferrer" className="other-card-cta">
                 GitHub &rarr;
               </a>
-              {p.liveUrl && (
-                <a href={p.liveUrl} target="_blank" rel="noreferrer" className="other-card-cta other-card-cta-live">
-                  Live &rarr;
-                </a>
-              )}
             </div>
           </div>
         ))}
