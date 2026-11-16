@@ -139,16 +139,19 @@ export const otherProjects = [
   {
     name: "CocoBean",
     link: "https://github.com/MeghaKanojia/CocoBean",
+    liveUrl: "https://meghakanojia.github.io/CocoBean/",
     description: "A chocolate brand website built with HTML and CSS.",
   },
   {
     name: "Resume Project",
     link: "https://github.com/MeghaKanojia/Resume-Project",
+    liveUrl: "https://meghakanojia.github.io/Resume-Project/",
     description: "A resume template built using only HTML.",
   },
   {
     name: "HTML Portfolio",
     link: "https://github.com/MeghaKanojia/html-portfolio",
+    liveUrl: "https://meghakanojia.github.io/html-portfolio/",
     description: "An early personal portfolio site, built for practice.",
   },
   {
