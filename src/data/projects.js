@@ -2,6 +2,7 @@ export const featuredProjects = [
   {
     name: "Job Search Agent",
     link: "https://github.com/MeghaKanojia/job-search-agent-public",
+    liveUrl: "https://job-search-agent-public.vercel.app/",
     dates: "Aug 2026 – Present",
     stack: "Python, FastAPI, SQLAlchemy, React, TypeScript, LangGraph, pgvector, Docker",
     problem:
