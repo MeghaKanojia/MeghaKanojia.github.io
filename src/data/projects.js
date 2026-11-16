@@ -10,6 +10,11 @@ export const featuredProjects = [
       "Built a full-stack AI agent: a custom RAG pipeline (fastembed embeddings + pgvector similarity search) retrieves relevant profile facts, and a LangGraph state graph orchestrates generation through a self-correcting draft → validate → retry loop, where a second LLM call acts as a grounding critic and automatically redrafts any output referencing a fact not present in my source profile. Shipped with a FastAPI/SQLAlchemy backend and a React/TypeScript review dashboard, deployed via Docker on Render and Vercel with HTTP Basic auth, Fernet-encrypted secrets, and OAuth read-only scopes.",
     results:
       "Consolidates postings from 5+ external sources into one pipeline. Every generated draft is automatically checked for groundedness before it reaches me, verified end to end with unit and integration tests. Designed, built, deployed, and run solo, with AI-assisted development (Claude Code) as part of the workflow.",
+    images: [
+      { src: "jobsearch-new-matches.png", alt: "New Matches queue, showing AI-sourced job postings with match scores" },
+      { src: "jobsearch-review-queue.png", alt: "Review Queue, generating a tailored resume and cover letter before staging" },
+      { src: "jobsearch-analytics.png", alt: "Analytics dashboard tracking new matches, staged, applied, and interview funnel" },
+    ],
   },
   {
     name: "Merchant Credit Risk Scorecard & Expected Loss Model",
@@ -22,8 +27,11 @@ export const featuredProjects = [
       "Engineered features from 300,000+ applicant records across 7 relational tables, then built an industry-standard Weight-of-Evidence scorecard (the interpretable approach regulators and credit committees actually use), benchmarked against a LightGBM challenger model with SHAP explainability.",
     results:
       "0.53 Gini on the LightGBM challenger. Converted model outputs into an Expected Loss (PD × LGD × EAD) view of portfolio risk and exported score-band summaries to a Power BI dashboard for underwriting and pricing decisions.",
-    image: "credit-scorecard-shap.png",
-    imageAlt: "SHAP feature importance plot for the LightGBM challenger model",
+    images: [
+      { src: "credit-scorecard-shap.png", alt: "SHAP feature importance plot for the LightGBM challenger model" },
+      { src: "credit-scorecard-distribution.png", alt: "Score distribution across the applicant population" },
+      { src: "credit-scorecard-default-band.png", alt: "Default rate by score band" },
+    ],
   },
   {
     name: "Independent Credit Model Validation & Backtesting Audit",
@@ -36,8 +44,11 @@ export const featuredProjects = [
       "Rebuilt a credit risk model from its underlying code and specification from scratch, then ran a full validation suite (Information Value for target leakage, Hosmer-Lemeshow discrimination/calibration, Population Stability Index, Variance Inflation Factor, stress testing) mapped to real bank regulatory frameworks (IFRS 9/IRB-style testing, Pillar 2/ICAAP).",
     results:
       "Produced a structured governance report with findings and recommendations, the same category of audit financial institutions run before relying on a model in production.",
-    image: "credit-audit-calibration.png",
-    imageAlt: "Calibration backtest chart comparing predicted vs. actual default rates",
+    images: [
+      { src: "credit-audit-calibration.png", alt: "Calibration backtest chart comparing predicted vs. actual default rates" },
+      { src: "credit-audit-psi.png", alt: "Population Stability Index by feature" },
+      { src: "credit-audit-stress-test.png", alt: "Stress-test expected loss under adverse scenarios" },
+    ],
   },
   {
     name: "Missense Variant Pathogenicity Prediction using GNNs",
@@ -50,8 +61,10 @@ export const featuredProjects = [
       "Built and benchmarked 5 model architectures (GCN, GraphSAGE, XGBoost, and PAE-weighted/unweighted GATv2) across 7 trained configurations, on a leakage-safe, protein-level split of 49,303 ClinVar variants (6,597 proteins, split so no protein's structure appeared in both train and test). Tested 3 independent PAE edge-weight encodings with bootstrap and DeLong significance testing to rigorously evaluate the central hypothesis, then diagnosed the result mechanistically with a confidence-score saturation check.",
     results:
       "GraphSAGE was the best of our own models at 0.9148 test AUPRC, ahead of XGBoost (0.9125) and every GATv2 variant (0.907–0.911), though AlphaMissense (the external state of the art) stayed significantly ahead at 0.9286 (p < 0.001). PAE-weighting itself showed no significant benefit over unweighted edges (–0.31%, p = 0.07), a rigorously tested negative result we traced to AlphaFold's confidence scores saturating within the graph's own contact radius, leaving little signal for attention to exploit.",
-    image: "missense-summary.png",
-    imageAlt: "Test AUPRC comparison across all seven trained models and AlphaMissense",
+    images: [
+      { src: "missense-summary.png", alt: "Test AUPRC comparison across all seven trained models and AlphaMissense" },
+      { src: "missense-phase5-comparison.png", alt: "Model comparison summary across the study's five architectures" },
+    ],
   },
   {
     name: "AI-Generated Image Detection for Etsy Listings",
@@ -76,8 +89,10 @@ export const featuredProjects = [
       "Built a forecasting pipeline in R comparing SARIMA, ETS, and TBATS models on 8 years of monthly EU monitoring data, validating assumptions with ADF, KPSS, and Ljung-Box tests.",
     results:
       "Selected the model that generalized best on held-out test error rather than training fit alone, a methodology directly transferable to monitoring operational or telemetry data over time.",
-    image: "forecasting-actual-vs-forecast.png",
-    imageAlt: "Actual vs. forecast radioactivity levels on the held-out test period",
+    images: [
+      { src: "forecasting-actual-vs-forecast.png", alt: "Actual vs. forecast radioactivity levels on the held-out test period" },
+      { src: "forecasting-timeseries-components.png", alt: "Decomposed time series components (trend, seasonal, remainder)" },
+    ],
   },
   {
     name: "Walmart Grocery Sales ETL Pipeline",
@@ -90,8 +105,7 @@ export const featuredProjects = [
       "Built a Python/Pandas/SQL ETL pipeline merging a SQL sales table with a separate Parquet feature file, cleaning and filtering 231,522 raw rows down to 106,193 validated records, then aggregating mean weekly sales by month.",
     results:
       "Found December and November weekly sales averaging ~$39,249 and ~$36,594, roughly 20% above October's low of ~$32,737, with the mean-vs-median gap ($34,214 vs $24,195) revealing a right-skewed distribution driven by a small number of holiday-week outliers.",
-    image: "walmart-header.jpg",
-    imageAlt: "Walmart grocery sales project header image",
+    images: [{ src: "walmart-header.jpg", alt: "Walmart grocery sales project header image" }],
   },
   {
     name: "Grammy Winners vs. Spotify Popularity Analysis",
@@ -104,8 +118,10 @@ export const featuredProjects = [
       "Built an end-to-end PySpark ETL and analytics pipeline over 1,159,764 Spotify tracks and 25,370 Grammy records spanning 2000 to 2023, manually resolving 41 ambiguous name-matching edge cases, then compared 12 audio features (danceability, energy, valence, tempo, and more) across Grammy winners, Spotify's annual Top 100, and the general population.",
     results:
       "Found Grammy winners lean toward dance, pop, and hip-hop and show more year-to-year volatility, while mainstream \"Listener Hits\" track the general population far more closely, meaning acclaim and popular taste genuinely diverge.",
-    image: "grammy-genre-comparison.png",
-    imageAlt: "Genre distribution comparison between Grammy winners and Spotify's general population",
+    images: [
+      { src: "grammy-genre-comparison.png", alt: "Genre distribution comparison between Grammy winners and Spotify's general population" },
+      { src: "grammy-valence-trend.png", alt: "Valence (musical positivity) trend by year across cohorts" },
+    ],
   },
 ];
 

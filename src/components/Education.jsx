@@ -4,7 +4,7 @@ const education = [
     degree: "MSc Computing (Data Analytics), First Class Honours (1:1)",
     dates: "Sep 2025 – Aug 2026",
     location: "Dublin, Ireland",
-    highlight: "Ranked 13th of ~150–200 students, top 5% of cohort",
+    highlight: "Ranked 13th in MSc Computing, with majors including Data Analytics, AI, NLP",
   },
   {
     school: "Bundelkhand Institute of Engineering & Technology",

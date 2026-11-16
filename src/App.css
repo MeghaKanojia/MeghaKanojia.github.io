@@ -266,14 +266,26 @@ main {
   box-shadow: var(--card-shadow);
 }
 
+.project-image-strip {
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--border);
+}
+
 .project-image-wrap {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 230px;
-  padding: 1rem;
+  flex: 1 1 220px;
+  min-width: 150px;
+  height: 210px;
+  padding: 0.75rem;
   background: var(--bg-alt);
-  border-bottom: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+}
+
+.project-image-wrap:last-child {
+  border-right: none;
 }
 
 .project-image {

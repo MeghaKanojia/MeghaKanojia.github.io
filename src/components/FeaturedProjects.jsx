@@ -28,14 +28,18 @@ export default function FeaturedProjects() {
           const isOpen = expanded.has(p.name);
           return (
             <article className={`project-card${isOpen ? " is-open" : ""}`} key={p.name}>
-              {p.image && (
-                <div className="project-image-wrap">
-                  <img
-                    className="project-image"
-                    src={`${import.meta.env.BASE_URL}projects/${p.image}`}
-                    alt={p.imageAlt || p.name}
-                    loading="lazy"
-                  />
+              {p.images && p.images.length > 0 && (
+                <div className="project-image-strip">
+                  {p.images.map((img) => (
+                    <div className="project-image-wrap" key={img.src}>
+                      <img
+                        className="project-image"
+                        src={`${import.meta.env.BASE_URL}projects/${img.src}`}
+                        alt={img.alt || p.name}
+                        loading="lazy"
+                      />
+                    </div>
+                  ))}
                 </div>
               )}
               <button
