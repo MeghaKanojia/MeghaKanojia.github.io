@@ -4,7 +4,7 @@ export default function Experience() {
       <h2 className="section-title">Experience</h2>
       <div className="exp-card">
         <div className="edu-top">
-          <h3>Optum (UnitedHealth Group) &mdash; Software Engineer, Data &amp; Analytics</h3>
+          <h3>Optum (UnitedHealth Group), Software Engineer, Data &amp; Analytics</h3>
           <span className="edu-dates">Jun 2022 &ndash; Aug 2025</span>
         </div>
         <p className="edu-location">Gurugram, India</p>

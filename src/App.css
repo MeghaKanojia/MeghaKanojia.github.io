@@ -1,25 +1,53 @@
 :root {
   --bg: #ffffff;
-  --bg-alt: #f6f7f9;
-  --text: #1a1d23;
-  --text-muted: #5b616e;
-  --accent: #1f4e79;
-  --accent-soft: #e8f0f7;
-  --border: #e3e5e9;
+  --bg-alt: #f3f6f1;
+  --card-bg: #ffffff;
+  --text: #223027;
+  --text-muted: #5e6b60;
+  --accent: #738a6e;
+  --accent-strong: #344c3d;
+  --accent-contrast: #ffffff;
+  --border: #dce3d8;
+  --chip-bg: #bfcfbb;
+  --chip-text: #2b3a2e;
   --card-shadow: 0 1px 3px rgba(16, 24, 40, 0.06), 0 1px 2px rgba(16, 24, 40, 0.04);
+
+  --trait-1-bg: var(--chip-bg);
+  --trait-1-text: var(--chip-text);
+  --trait-2-bg: var(--chip-bg);
+  --trait-2-text: var(--chip-text);
+  --trait-3-bg: var(--chip-bg);
+  --trait-3-text: var(--chip-text);
+  --trait-4-bg: var(--chip-bg);
+  --trait-4-text: var(--chip-text);
+
+  color-scheme: light;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #14171c;
-    --bg-alt: #1b1f26;
-    --text: #eef0f3;
-    --text-muted: #a6acb8;
-    --accent: #6ea8d8;
-    --accent-soft: #1e2d3b;
-    --border: #2a2f38;
-    --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-  }
+:root[data-theme="dark"] {
+  --bg: #0d1210;
+  --bg-alt: #141b17;
+  --card-bg: #1a2420;
+  --text: #eaf3ec;
+  --text-muted: #9fb4a5;
+  --accent: #4ade80;
+  --accent-strong: #22d3ee;
+  --accent-contrast: #0d1210;
+  --border: #263029;
+  --chip-bg: rgba(74, 222, 128, 0.16);
+  --chip-text: #4ade80;
+  --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+
+  --trait-1-bg: rgba(74, 222, 128, 0.16);
+  --trait-1-text: #4ade80;
+  --trait-2-bg: rgba(34, 211, 238, 0.16);
+  --trait-2-text: #22d3ee;
+  --trait-3-bg: rgba(232, 121, 249, 0.16);
+  --trait-3-text: #e879f9;
+  --trait-4-bg: rgba(251, 191, 36, 0.16);
+  --trait-4-text: #fbbf24;
+
+  color-scheme: dark;
 }
 
 * {
@@ -31,36 +59,79 @@
   color: var(--text);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.55;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 a {
-  color: var(--accent);
+  color: var(--accent-strong);
+}
+
+.topnav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.75rem 1.25rem;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--bg-alt);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent);
+  color: var(--accent-strong);
 }
 
 .hero {
   background: var(--bg-alt);
   border-bottom: 1px solid var(--border);
-  padding: 4rem 1.25rem 3rem;
+  padding: 3rem 1.25rem;
 }
 
-.hero-inner {
-  max-width: 720px;
+.hero-grid {
+  max-width: 980px;
   margin: 0 auto;
-  text-align: center;
+  display: grid;
+  grid-template-columns: minmax(220px, 320px) 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.hero-photo-col {
+  display: flex;
+  justify-content: center;
 }
 
 .hero-photo {
-  width: 140px;
-  height: 140px;
+  width: 280px;
+  height: 280px;
   border-radius: 50%;
   object-fit: cover;
   object-position: 50% 12%;
-  border: 3px solid var(--accent);
-  margin-bottom: 1.25rem;
+  border: 4px solid var(--accent);
+  box-shadow: var(--card-shadow);
+}
+
+.hero-content-col {
+  text-align: left;
 }
 
 .hero-title {
-  font-size: clamp(2.5rem, 7vw, 3.75rem);
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
   font-weight: 800;
   margin: 0 0 0.5rem;
   letter-spacing: -0.02em;
@@ -69,36 +140,37 @@ a {
 .hero-subtitle {
   font-size: 1.15rem;
   color: var(--text-muted);
-  margin: 0 0 1.25rem;
+  margin: 0 0 1.1rem;
 }
 
 .hero-bio {
   max-width: 560px;
-  margin: 0 auto 1.5rem;
+  margin: 0 0 1.5rem;
   color: var(--text-muted);
 }
 
 .hero-traits {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 0.5rem;
   margin-bottom: 1.75rem;
 }
 
 .trait-chip {
-  background: var(--accent-soft);
-  color: var(--accent);
   border-radius: 999px;
   padding: 0.35rem 0.9rem;
   font-size: 0.85rem;
   font-weight: 600;
 }
 
+.trait-1 { background: var(--trait-1-bg); color: var(--trait-1-text); }
+.trait-2 { background: var(--trait-2-bg); color: var(--trait-2-text); }
+.trait-3 { background: var(--trait-3-bg); color: var(--trait-3-text); }
+.trait-4 { background: var(--trait-4-bg); color: var(--trait-4-text); }
+
 .hero-links {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 0.75rem;
 }
 
@@ -111,12 +183,13 @@ a {
   font-weight: 600;
   font-size: 0.9rem;
   color: var(--text);
+  background: var(--card-bg);
 }
 
 .btn-primary {
-  background: var(--accent);
-  color: #fff;
-  border-color: var(--accent);
+  background: var(--accent-strong);
+  color: var(--accent-contrast);
+  border-color: var(--accent-strong);
 }
 
 main {
@@ -152,10 +225,11 @@ main {
 
 .edu-card,
 .exp-card {
-  background: var(--bg-alt);
+  background: var(--card-bg);
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 1.25rem 1.5rem;
+  box-shadow: var(--card-shadow);
 }
 
 .edu-top {
@@ -190,7 +264,7 @@ main {
 .edu-highlight {
   margin: 0.6rem 0 0;
   font-weight: 600;
-  color: var(--accent);
+  color: var(--accent-strong);
 }
 
 .exp-bullets {
@@ -236,10 +310,11 @@ main {
 }
 
 .project-card {
-  background: var(--bg-alt);
+  background: var(--card-bg);
   border: 1px solid var(--border);
   border-radius: 14px;
   padding: 1.5rem 1.75rem;
+  box-shadow: var(--card-shadow);
 }
 
 .project-head {
@@ -281,7 +356,7 @@ main {
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-strong);
 }
 
 .project-link {
@@ -300,7 +375,7 @@ main {
 
 .other-card {
   display: block;
-  background: var(--bg-alt);
+  background: var(--card-bg);
   border: 1px solid var(--border);
   border-radius: 10px;
   padding: 1rem 1.1rem;
@@ -338,9 +413,35 @@ main {
   text-decoration: none;
 }
 
+@media (max-width: 720px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-content-col {
+    text-align: center;
+  }
+
+  .hero-bio {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-traits,
+  .hero-links {
+    justify-content: center;
+  }
+
+  .hero-photo {
+    width: 200px;
+    height: 200px;
+  }
+}
+
 @media (max-width: 480px) {
   .hero {
-    padding: 3rem 1rem 2.5rem;
+    padding: 2.5rem 1rem;
   }
 
   .section {
