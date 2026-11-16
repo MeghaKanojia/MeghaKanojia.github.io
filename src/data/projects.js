@@ -22,6 +22,8 @@ export const featuredProjects = [
       "Engineered features from 300,000+ applicant records across 7 relational tables, then built an industry-standard Weight-of-Evidence scorecard (the interpretable approach regulators and credit committees actually use), benchmarked against a LightGBM challenger model with SHAP explainability.",
     results:
       "0.53 Gini on the LightGBM challenger. Converted model outputs into an Expected Loss (PD × LGD × EAD) view of portfolio risk and exported score-band summaries to a Power BI dashboard for underwriting and pricing decisions.",
+    image: "credit-scorecard-shap.png",
+    imageAlt: "SHAP feature importance plot for the LightGBM challenger model",
   },
   {
     name: "Independent Credit Model Validation & Backtesting Audit",
@@ -34,18 +36,22 @@ export const featuredProjects = [
       "Rebuilt a credit risk model from its underlying code and specification from scratch, then ran a full validation suite (Information Value for target leakage, Hosmer-Lemeshow discrimination/calibration, Population Stability Index, Variance Inflation Factor, stress testing) mapped to real bank regulatory frameworks (IFRS 9/IRB-style testing, Pillar 2/ICAAP).",
     results:
       "Produced a structured governance report with findings and recommendations, the same category of audit financial institutions run before relying on a model in production.",
+    image: "credit-audit-calibration.png",
+    imageAlt: "Calibration backtest chart comparing predicted vs. actual default rates",
   },
   {
-    name: "Missense Variant Pathogenicity Prediction using GNN",
+    name: "Missense Variant Pathogenicity Prediction using GNNs",
     link: "https://github.com/MeghaKanojia/missense-variant-pathogenicity-prediction",
     dates: "Oct 2025 – Aug 2026",
-    stack: "PyTorch, PyTorch Geometric, GATv2, ESM-2, AlphaFold2",
+    stack: "PyTorch, PyTorch Geometric, XGBoost, ESM-2, AlphaFold2",
     problem:
-      "Predicting whether a genetic variant is disease-causing is a key bottleneck in clinical genomics, and most existing tools don't fuse sequence and structural signal together.",
+      "Only ~2% of the 4M+ catalogued missense variants in humans have a confirmed pathogenic/benign label; the rest are Variants of Uncertain Significance, and wet-lab validation can't close that gap at the rate new variants are found. We set out to test whether fusing AlphaFold's structural confidence (PAE) with ESM-2's evolutionary embeddings in a graph neural network could improve on existing predictors, and specifically whether PAE-weighted graph edges add value over treating every structural contact as equally reliable.",
     solution:
-      "Trained a GATv2 Graph Attention Network fusing ESM-2 protein language model embeddings with AlphaFold2 structural data, benchmarking it in a 5-model comparison suite trained locally on GPU, tuning batch size and monitoring utilization via nvidia-smi to fit hardware constraints.",
+      "Built and benchmarked 5 model architectures (GCN, GraphSAGE, XGBoost, and PAE-weighted/unweighted GATv2) across 7 trained configurations, on a leakage-safe, protein-level split of 49,303 ClinVar variants (6,597 proteins, split so no protein's structure appeared in both train and test). Tested 3 independent PAE edge-weight encodings with bootstrap and DeLong significance testing to rigorously evaluate the central hypothesis, then diagnosed the result mechanistically with a confidence-score saturation check.",
     results:
-      "0.9148 test AUPRC, validated with bootstrap confidence intervals, the DeLong test, and McNemar's test rather than a single headline number, reported in my Master's research paper.",
+      "GraphSAGE was the best of our own models at 0.9148 test AUPRC, ahead of XGBoost (0.9125) and every GATv2 variant (0.907–0.911), though AlphaMissense (the external state of the art) stayed significantly ahead at 0.9286 (p < 0.001). PAE-weighting itself showed no significant benefit over unweighted edges (–0.31%, p = 0.07), a rigorously tested negative result we traced to AlphaFold's confidence scores saturating within the graph's own contact radius, leaving little signal for attention to exploit.",
+    image: "missense-summary.png",
+    imageAlt: "Test AUPRC comparison across all seven trained models and AlphaMissense",
   },
   {
     name: "AI-Generated Image Detection for Etsy Listings",
@@ -70,6 +76,8 @@ export const featuredProjects = [
       "Built a forecasting pipeline in R comparing SARIMA, ETS, and TBATS models on 8 years of monthly EU monitoring data, validating assumptions with ADF, KPSS, and Ljung-Box tests.",
     results:
       "Selected the model that generalized best on held-out test error rather than training fit alone, a methodology directly transferable to monitoring operational or telemetry data over time.",
+    image: "forecasting-actual-vs-forecast.png",
+    imageAlt: "Actual vs. forecast radioactivity levels on the held-out test period",
   },
   {
     name: "Walmart Grocery Sales ETL Pipeline",
@@ -82,6 +90,8 @@ export const featuredProjects = [
       "Built a Python/Pandas/SQL ETL pipeline merging a SQL sales table with a separate Parquet feature file, cleaning and filtering 231,522 raw rows down to 106,193 validated records, then aggregating mean weekly sales by month.",
     results:
       "Found December and November weekly sales averaging ~$39,249 and ~$36,594, roughly 20% above October's low of ~$32,737, with the mean-vs-median gap ($34,214 vs $24,195) revealing a right-skewed distribution driven by a small number of holiday-week outliers.",
+    image: "walmart-header.jpg",
+    imageAlt: "Walmart grocery sales project header image",
   },
   {
     name: "Grammy Winners vs. Spotify Popularity Analysis",
@@ -94,6 +104,8 @@ export const featuredProjects = [
       "Built an end-to-end PySpark ETL and analytics pipeline over 1,159,764 Spotify tracks and 25,370 Grammy records spanning 2000 to 2023, manually resolving 41 ambiguous name-matching edge cases, then compared 12 audio features (danceability, energy, valence, tempo, and more) across Grammy winners, Spotify's annual Top 100, and the general population.",
     results:
       "Found Grammy winners lean toward dance, pop, and hip-hop and show more year-to-year volatility, while mainstream \"Listener Hits\" track the general population far more closely, meaning acclaim and popular taste genuinely diverge.",
+    image: "grammy-genre-comparison.png",
+    imageAlt: "Genre distribution comparison between Grammy winners and Spotify's general population",
   },
 ];
 

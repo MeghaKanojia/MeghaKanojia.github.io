@@ -10,6 +10,7 @@ export default function OtherProjects() {
           <a className="other-card" key={p.name} href={p.link} target="_blank" rel="noreferrer">
             <h4>{p.name}</h4>
             <p>{p.description}</p>
+            <span className="other-card-cta">View on GitHub &rarr;</span>
           </a>
         ))}
       </div>
