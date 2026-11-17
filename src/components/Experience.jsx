@@ -4,7 +4,18 @@ export default function Experience() {
       <h2 className="section-title">Experience</h2>
       <div className="exp-card">
         <div className="edu-top">
-          <h3>Optum (UnitedHealth Group), Software Engineer, Data &amp; Analytics</h3>
+          <div className="exp-title-row">
+            <a
+              className="exp-logo-link"
+              href="https://www.optum.com"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Optum website"
+            >
+              <img className="exp-logo" src={`${import.meta.env.BASE_URL}logos/optum-logo.svg`} alt="Optum" />
+            </a>
+            <h3>Optum (UnitedHealth Group), Software Engineer, Data &amp; Analytics</h3>
+          </div>
           <span className="edu-dates">Jun 2022 &ndash; Aug 2025</span>
         </div>
         <p className="edu-location">Gurugram, India</p>
