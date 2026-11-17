@@ -17,7 +17,11 @@ const skillGroups = [
   },
   {
     label: "Programming & Data",
-    items: ["Python", "SQL", "FastAPI", "R", "DAX"],
+    items: ["Python", "SQL", "FastAPI", "R", "DAX", "Java", "JavaScript"],
+  },
+  {
+    label: "Adobe & Enterprise Platforms",
+    items: ["Spring Boot", "Adobe Experience Cloud", "AEM", "Adobe Analytics", "Adobe Data Collection", "CDD"],
   },
   {
     label: "Platforms & Tools",
