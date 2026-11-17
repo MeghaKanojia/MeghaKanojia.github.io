@@ -20,7 +20,7 @@ export default function OtherProjects() {
             <p>{p.description}</p>
             <div className="other-card-links">
               <a href={p.link} target="_blank" rel="noreferrer" className="other-card-cta">
-                GitHub &rarr;
+                GitHub
               </a>
             </div>
           </div>

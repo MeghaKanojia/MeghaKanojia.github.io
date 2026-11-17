@@ -103,7 +103,7 @@ export default function FeaturedProjects() {
                   </div>
                   <div className="project-link-row">
                     <a className="project-link" href={p.link} target="_blank" rel="noreferrer">
-                      View on GitHub &rarr;
+                      View on GitHub
                     </a>
                   </div>
                 </div>
