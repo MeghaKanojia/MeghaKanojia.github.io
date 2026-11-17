@@ -340,6 +340,7 @@ main {
 
 .cert-track {
   display: flex;
+  align-items: flex-start;
 }
 
 .cert-slide {
