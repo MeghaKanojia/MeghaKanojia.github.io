@@ -253,6 +253,57 @@ main {
   font-size: 0.82rem;
 }
 
+.cert-carousel {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding-bottom: 0.75rem;
+  scroll-snap-type: x proximity;
+}
+
+.cert-card {
+  flex: 0 0 220px;
+  scroll-snap-align: start;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--moss);
+  border-radius: 12px;
+  padding: 1.25rem 1.25rem 1.1rem;
+  box-shadow: var(--card-shadow);
+}
+
+.cert-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--sage-hint);
+  color: var(--evergreen);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.cert-card h4 {
+  margin: 0 0 0.35rem;
+  font-size: 0.95rem;
+  line-height: 1.35;
+}
+
+.cert-issuer {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.cert-date {
+  margin: 0.2rem 0 0;
+  font-size: 0.78rem;
+  color: var(--accent-strong);
+  font-weight: 600;
+}
+
 .project-list {
   display: grid;
   gap: 1.5rem;

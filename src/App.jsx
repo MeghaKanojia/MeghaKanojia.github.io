@@ -2,6 +2,7 @@ import Hero from "./components/Hero";
 import Education from "./components/Education";
 import Experience from "./components/Experience";
 import Skills from "./components/Skills";
+import Certifications from "./components/Certifications";
 import FeaturedProjects from "./components/FeaturedProjects";
 import OtherProjects from "./components/OtherProjects";
 import Footer from "./components/Footer";
@@ -15,6 +16,7 @@ export default function App() {
         <Education />
         <Experience />
         <Skills />
+        <Certifications />
         <FeaturedProjects />
         <OtherProjects />
       </main>
