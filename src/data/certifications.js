@@ -1,9 +1,12 @@
-export const certifications = [
+const raw = [
   { name: "Introduction to Databricks", issuer: "DataCamp", date: "Aug 30, 2026", image: "datacamp-intro-databricks.png" },
   { name: "Databricks with the Python SDK", issuer: "DataCamp", date: "Aug 27, 2026", image: "datacamp-databricks-python-sdk.png" },
-  { name: "Introduction to DAX in Power BI", issuer: "DataCamp", date: "Jun 8, 2026", image: "datacamp-dax-powerbi.png" },
   { name: "Forward Program", issuer: "McKinsey.org", date: "Jun 23, 2026", image: "mckinsey-forward.png" },
+  { name: "Introduction to DAX in Power BI", issuer: "DataCamp", date: "Jun 8, 2026", image: "datacamp-dax-powerbi.png" },
   { name: "Introduction to Power BI", issuer: "DataCamp", date: "May 17, 2026", image: "datacamp-intro-powerbi.png" },
+  { name: "Introduction to SQL", issuer: "DataCamp", date: "Oct 12, 2025", image: "datacamp-intro-sql.png" },
+  { name: "Introduction to Git", issuer: "DataCamp", date: "Sep 21, 2025", image: "datacamp-intro-git.png" },
+  { name: "Introduction to R", issuer: "DataCamp", date: "Sep 16, 2025", image: "datacamp-intro-r.png" },
   {
     name: "Microsoft Certified: Azure Fundamentals",
     issuer: "Microsoft",
@@ -11,9 +14,6 @@ export const certifications = [
     image: "microsoft-azure-fundamentals.png",
     highlight: true,
   },
-  { name: "Introduction to SQL", issuer: "DataCamp", date: "Oct 12, 2025", image: "datacamp-intro-sql.png" },
-  { name: "Introduction to Git", issuer: "DataCamp", date: "Sep 21, 2025", image: "datacamp-intro-git.png" },
-  { name: "Introduction to R", issuer: "DataCamp", date: "Sep 16, 2025", image: "datacamp-intro-r.png" },
   {
     name: "Process Data from Dirty to Clean",
     issuer: "Google (Coursera)",
@@ -69,3 +69,7 @@ export const certifications = [
     image: "coursera-intro-data-science.png",
   },
 ];
+
+// Always sorted newest-first by actual date, regardless of insertion order above,
+// so a future addition in the wrong spot can't silently break the ordering.
+export const certifications = [...raw].sort((a, b) => new Date(b.date) - new Date(a.date));
